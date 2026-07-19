@@ -1,108 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Background from "../background/Background";
 import Button from "../ui/Button";
 import Container from "../layout/Container";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-
-      <Background />
+    <section className="relative flex min-h-screen items-center overflow-hidden">
 
       <Container className="relative z-10">
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1,
-            ease: "easeOut",
-          }}
-          className="text-center"
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          className="max-w-3xl"
         >
 
-          {/* Availability Badge */}
-
-          <div className="mb-8 inline-flex rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-slate-300 backdrop-blur-xl">
-            Open to Opportunities
-          </div>
-
-          {/* Small Heading */}
-
-          <p className="mb-8 uppercase tracking-[0.6em] text-slate-500">
-            CREATIVE DEVELOPER
+          <p className="font-hand text-2xl text-[var(--accent)]">
+            hi, I'm
           </p>
 
-          {/* Name */}
+          <h1 className="mt-2 font-serif text-5xl leading-tight text-[var(--foreground)] sm:text-6xl md:text-7xl">
+            Bagmita Pokhrel.
+          </h1>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.3,
-              duration: 1,
-            }}
-            className="text-5xl font-black leading-none sm:text-6xl md:text-7xl lg:text-8xl"
-          >
-            <span className="bg-gradient-to-r from-white via-slate-200 to-cyan-400 bg-clip-text text-transparent">
-              Bagmita
-              <br />
-              Pokhrel
-            </span>
-          </motion.h1>
-
-          {/* Role */}
-
-          <p className="mt-6 text-sm uppercase tracking-[0.45em] text-cyan-400">
-            Full Stack Developer
+          <p className="mt-8 max-w-xl font-sans text-lg leading-8 text-[var(--muted)]">
+            I've been coding for two years. I'm not a genius. I just don't
+            quit on things until they work.
           </p>
 
-          {/* Description */}
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              delay: 0.6,
-              duration: 1,
-            }}
-            className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-slate-400"
-          >
-            I build modern, scalable, and user-focused web experiences using
-            clean architecture, thoughtful design, and powerful technologies.
-          </motion.p>
-
-          {/* Buttons */}
+          <p className="mt-4 max-w-xl font-sans text-lg leading-8 text-[var(--muted)]">
+            Most of what I've built started because something annoyed me
+            enough to fix it myself.
+          </p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 1,
-              duration: 0.8,
-            }}
-            className="mt-12 flex flex-wrap justify-center gap-6"
+            transition={{ delay: 0.5, duration: 0.7 }}
+            className="mt-12 flex flex-wrap gap-6"
           >
-            <Button>Explore Work</Button>
-
-            <Button>Get Resume</Button>
+            <Button>See what I've built</Button>
+            <Button variant="outline">Read my resume</Button>
           </motion.div>
-
-          {/* Scroll */}
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              delay: 1.5,
-              duration: 1,
-            }}
-            className="mt-16 text-xs uppercase tracking-[0.5em] text-slate-500"
-          >
-            Scroll to Explore
-          </motion.p>
 
         </motion.div>
 
