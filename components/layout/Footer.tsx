@@ -25,6 +25,12 @@ export default function Footer() {
           >
             Say hello
           </Link>
+          <Link
+           href="/privacy"
+           className="font-sans text-sm text-[var(--muted)] transition-colors hover:text-[var(--accent)]"
+           >
+           Privacy 
+            </Link>
         </div>
       </div>
     </footer>
