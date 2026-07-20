@@ -34,14 +34,17 @@
     cursor: pointer;
   }
 
-  @media (pointer: fine) {
-    * {
-      cursor: none !important;
-    }
-  }
+  
 }
 
 html, body {
   overflow-x: hidden;
   width: 100%;
+}
+
+@media print {
+  nav,
+  footer {
+    display: none !important;
+  }
 }

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Lora, DM_Sans, Caveat } from "next/font/google";
+import { Lora, DM_Sans, Caveat, JetBrains_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
-import CustomCursor from "@/components/ui/CustomCursor";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -20,6 +19,11 @@ const dmSans = DM_Sans({
 const caveat = Caveat({
   subsets: ["latin"],
   variable: "--font-hand",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -56,7 +60,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${lora.variable} ${dmSans.variable} ${caveat.variable}`}>
+      <body className={`${lora.variable} ${dmSans.variable} ${caveat.variable} ${jetbrainsMono.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -68,13 +72,12 @@ export default function RootLayout({
               jobTitle: "Full Stack Developer",
               sameAs: [
                 "https://github.com/bagmitapokhrel",
-                "https://linkedin.com/in/Bagmita-Pokhrel",
+                "https://linkedin.com/in/bagmitapokhrel",
               ],
             }),
           }}
         />
         <SmoothScroll>
-          <CustomCursor />
           <Navbar />
           {children}
           <Footer />
@@ -82,6 +85,11 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         )}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `console.log("%cLooking around? Try /now or /uses.", "color: #6B2737; font-size: 14px; font-family: monospace;");`,
+          }}
+        />
       </body>
     </html>
   );

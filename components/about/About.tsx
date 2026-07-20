@@ -28,6 +28,11 @@ export default function About() {
 
             <div className="mt-10 space-y-6 font-sans text-lg leading-8 text-[var(--muted)]">
               <p>
+                I'm currently a BIM (Bachelor in Information Management) student,
+                figuring out development mostly by building things and breaking
+                them.
+              </p>
+              <p>
                 I'm not going to tell you I've always dreamed of being a
                 developer, or that I code sixteen hours a day out of pure
                 passion. That's not true, and I'd rather you know the real
