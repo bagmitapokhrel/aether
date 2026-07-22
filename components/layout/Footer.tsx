@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="border-t border-[var(--muted)]/15 py-10">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-3 px-6 text-center md:flex-row md:justify-between md:px-8 lg:px-12">
         <p className="font-serif text-sm text-[var(--muted)]">
-          Bagmita Pokhrel, {year}
+          Bagmita Pokhrel, © {year} All rights reserved.
         </p>
 
         <div className="flex gap-6">

@@ -62,7 +62,7 @@ export default function Contact() {
           </div>
 
           <p className="mt-20 font-sans text-sm text-[var(--muted)]">
-            Bagmita Pokhrel — written and built by hand, not a template.
+            Bagmita Pokhrel 
           </p>
         </motion.div>
       </Container>
