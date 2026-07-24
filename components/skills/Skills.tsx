@@ -10,7 +10,7 @@ const groups = [
   },
   {
     category: "Backend",
-    tools: ["Node.js", "Express", "MongoDB", "MySQL"],
+    tools: ["Node.js", "Express", "MongoDB", "MySQL", "Python Django"],
   },
   {
     category: "Tools I keep coming back to",
