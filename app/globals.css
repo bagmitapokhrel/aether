@@ -1,20 +1,5 @@
 @import "tailwindcss";
 
-/* Tailwind CSS v4 Theme Bridge */
-@theme {
-  --color-background: #FAF6F0;
-  --color-foreground: #2B211D;
-  --color-accent: #6B2737;
-  --color-accent-soft: #E8D9D4;
-  --color-muted: #6B5D4F;
-
-  --font-serif: var(--font-serif), Georgia, serif;
-  --font-sans: var(--font-sans), system-ui, sans-serif;
-  --font-hand: var(--font-hand), cursive;
-  --font-mono: var(--font-mono), monospace;
-}
-
-/* Fallback / Native CSS Variables */
 :root {
   --background: #FAF6F0;
   --foreground: #2B211D;
@@ -23,93 +8,43 @@
   --muted: #6B5D4F;
 }
 
-/* Base Document Reset & Defaults */
 @layer base {
-  *,
-  ::before,
-  ::after {
-    box-sizing: border-box;
+  * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 
   html {
-    scroll-behavior: auto; /* Handled via Lenis / SmoothScroll */
-    -webkit-text-size-adjust: 100%;
-    overflow-x: hidden;
-    width: 100%;
+    scroll-behavior: auto;
   }
 
   body {
-    background-color: var(--background);
+    background: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
     overflow-x: hidden;
-    width: 100%;
-    min-height: 100vh;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
   }
 
-  /* Typography Defaults */
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4 {
     font-family: var(--font-serif);
-    font-weight: normal;
-  }
-
-  /* Focus States for Accessibility */
-  :focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-  }
-
-  /* Text Selection Styles */
-  ::selection {
-    background-color: var(--accent);
-    color: var(--background);
   }
 
   button {
     cursor: pointer;
-    background: transparent;
-    border: none;
   }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+  
 }
 
-/* Custom Scrollbar Styles */
-::-webkit-scrollbar {
-  width: 8px;
+html, body {
+  overflow-x: hidden;
+  width: 100%;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--accent-soft);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
-}
-
-/* Print Styles */
 @media print {
   nav,
-  footer,
-  #contact {
+  footer {
     display: none !important;
-  }
-
-  body {
-    background: #ffffff !important;
-    color: #000000 !important;
   }
 }
