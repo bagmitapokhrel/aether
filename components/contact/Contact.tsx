@@ -1,16 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Mail, ArrowUpRight } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Container from "../layout/Container";
 
-const fadeInVariants = {
+const fadeInVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }
+    transition: { duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] as const, }
   },
 };
 

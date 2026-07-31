@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Button from "../ui/Button";
 import Container from "../layout/Container";
@@ -108,7 +108,7 @@ export default function Hero() {
                   alt="Bagmita Pokhrel"
                   fill
                   priority
-                  quality={90}
+                  
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 />
