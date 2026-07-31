@@ -4,34 +4,72 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Container from "../layout/Container";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.21, 0.47, 0.32, 0.98],
+    },
+  },
+};
+
 export default function About() {
   return (
-    <section id="about" className="py-32">
+    <section id="about" className="py-24 sm:py-32">
       <Container>
-        <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start xl:gap-20">
+          
+          {/* Main Copy */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
+            className="max-w-2xl lg:max-w-none"
           >
-            <p className="font-hand text-2xl text-[var(--accent)]">
+            {/* Eyebrow */}
+            <motion.p
+              variants={itemVariants}
+              className="font-hand text-2xl tracking-wide text-[var(--accent)]"
+            >
               a bit more about me
-            </p>
+            </motion.p>
 
-            <h2 className="mt-3 font-serif text-4xl leading-snug text-[var(--foreground)] sm:text-5xl">
+            {/* Main Headline */}
+            <motion.h2
+              variants={itemVariants}
+              className="mt-3 font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-snug tracking-tight text-[var(--foreground)]"
+            >
               I didn't fall in love with code.
-              <br />
-              I just kept showing up for it.
-            </h2>
+              <br className="hidden sm:inline" />
+              {" "}I just kept showing up for it.
+            </motion.h2>
 
-            <div className="mt-10 space-y-6 font-sans text-lg leading-8 text-[var(--muted)]">
+            {/* Narrative Body */}
+            <motion.div
+              variants={itemVariants}
+              className="mt-8 space-y-6 font-sans text-base sm:text-lg leading-relaxed text-[var(--muted)]"
+            >
               <p>
                 I'm currently a BIM (Bachelor in Information Management) student,
                 figuring out development mostly by building things and breaking
                 them.
               </p>
+              
               <p>
                 I'm not going to tell you I've always dreamed of being a
                 developer, or that I code sixteen hours a day out of pure
@@ -47,8 +85,11 @@ export default function About() {
               </p>
 
               <p>
-                I care about things being <em className="text-[var(--foreground)]">right</em>,
-                not just finished. That's probably the closest thing I have to
+                I care about things being{" "}
+                <em className="font-serif italic text-[var(--foreground)] font-medium">
+                  right
+                </em>
+                , not just finished. That's probably the closest thing I have to
                 a work philosophy.
               </p>
 
@@ -56,24 +97,27 @@ export default function About() {
                 Outside of that, I'm quiet, a little old-fashioned, and I'd
                 rather write one honest sentence than ten polished ones.
               </p>
-            </div>
+            </motion.div>
           </motion.div>
 
+          {/* Editorial Portrait Column */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="relative mx-auto w-full max-w-sm lg:mx-0 lg:mt-16"
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="relative mx-auto w-full max-w-sm sm:max-w-md lg:mx-0 lg:mt-12"
           >
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm border border-[var(--muted)]/20 bg-[var(--accent-soft)]/30">
+            <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-md border border-[var(--muted)]/20 bg-[var(--accent-soft)]/20 shadow-sm transition-transform duration-500 hover:-translate-y-1">
               <Image
                 src="/photos/Bagmitaa-portrait.jpg"
-                alt="Bagmita Pokhrel"
+                alt="Bagmita Pokhrel portrait"
                 fill
-                className="object-cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 35vw"
+                className="object-cover grayscale transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0"
               />
             </div>
+            
             <p className="mt-4 text-center font-hand text-xl text-[var(--muted)]">
               me, on an ordinary day
             </p>
