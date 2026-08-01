@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     google: "c8v8Bgtk2ZaCHs67UFId3KPEm9HenK8lD7LbZlKYl28",
   },
   openGraph: {
-    title: "Bagmita Pokhrel — Full Stack Developer",
+    title: "Bagmita Pokhrel | Full Stack Developer",
     description:
       "I'm Bagmita Pokhrel, a full stack developer. I don't sugarcoat things — this is a look at what I've actually built, and why.",
     url: "https://bagmitapokhrel.com.np",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bagmita Pokhrel — Full Stack Developer",
+    title: "Bagmita Pokhrel | Full Stack Developer",
     description: "I don't sugarcoat things. Here's what I've actually built.",
     images: ["/og-image.jpg"],
   },

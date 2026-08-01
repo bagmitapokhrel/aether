@@ -71,7 +71,7 @@ export default function About() {
                 src="/photos/Bagmitaa-portrait.jpg"
                 alt="Bagmita Pokhrel"
                 fill
-                className="object-cover"
+                className="object-cover grayscale transition-all duration-300 hover:grayscale-0"
               />
             </div>
             <p className="mt-4 text-center font-hand text-xl text-[var(--muted)]">
