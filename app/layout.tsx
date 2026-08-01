@@ -28,7 +28,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bagmitapokhrel.com.np"),
-  title: "Bagmita Pokhrel — Full Stack Developer",
+  title: "Bagmita Pokhrel | Full Stack Developer",
   description:
     "I'm Bagmita Pokhrel, a full stack developer. I don't sugarcoat things — this is a look at what I've actually built, and why.",
   keywords: ["Bagmita Pokhrel", "Full Stack Developer", "Web Developer Portfolio"],
