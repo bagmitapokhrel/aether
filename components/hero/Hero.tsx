@@ -1,11 +1,41 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import Button from "../ui/Button";
 import Container from "../layout/Container";
 
 export default function Hero() {
+  const [zoomed, setZoomed] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [8, -8]), {
+    stiffness: 300,
+    damping: 30,
+  });
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-8, 8]), {
+    stiffness: 300,
+    damping: 30,
+  });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect) return;
+    const px = (e.clientX - rect.left) / rect.width - 0.5;
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    x.set(px);
+    y.set(py);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   return (
     <section id="hero" className="relative flex min-h-screen items-center overflow-hidden pt-20">
       <Container className="relative z-10">
@@ -51,8 +81,16 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2 }}
             className="relative mx-auto w-full max-w-sm lg:mx-0"
+            style={{ perspective: 1000 }}
           >
-            <div className="overflow-hidden rounded-lg border border-[var(--muted)]/25 shadow-[8px_8px_0_var(--accent-soft)]">
+            <motion.div
+              ref={ref}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              onClick={() => setZoomed(!zoomed)}
+              style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+              className="cursor-pointer overflow-hidden rounded-lg border border-[var(--muted)]/25 shadow-[8px_8px_0_var(--accent-soft)]"
+            >
               <div className="flex items-center gap-2 border-b border-[var(--muted)]/20 bg-[var(--accent-soft)]/40 px-4 py-2.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-[var(--accent)]/70" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[var(--muted)]/50" />
@@ -62,16 +100,22 @@ export default function Hero() {
                 </span>
               </div>
 
-              <div className="relative aspect-[4/5] w-full bg-[var(--accent-soft)]/30">
-                <Image
-                  src="/photos/bagmita-hero.jpg"
-                  alt="Bagmita Pokhrel"
-                  fill
-                  className="object-cover"
-                  priority
-                />
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-[var(--accent-soft)]/30">
+                <motion.div
+                  animate={{ scale: zoomed ? 1.12 : 1 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="relative h-full w-full"
+                >
+                  <Image
+                    src="/photos/bagmita-hero.jpg"
+                    alt="Bagmita Pokhrel"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
         </div>
